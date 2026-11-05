@@ -1,154 +1,1217 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Manojkumar Shinde | Java Backend Developer</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap">
-<style>
-:root{--bg:#f4f6fb;--fg:#10182b;--mut:#56607a;--card:#ffffff;--bd:#dde3f0;--a:#e8590c;--b:#0f766e;--glow:rgba(232,89,12,.14);
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1426;--fg:#eef2fb;--mut:#9aa6c2;--card:#131e36;--bd:#24324f;--a:#ffa94d;--b:#5eead4;--glow:rgba(255,169,77,.12)}}
-:root[data-theme="dark"]{--bg:#0c1426;--fg:#eef2fb;--mut:#9aa6c2;--card:#131e36;--bd:#24324f;--a:#ffa94d;--b:#5eead4;--glow:rgba(255,169,77,.12)}
-html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
-*,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
-h1,h2,h3{font-family:"Bricolage Grotesque",Inter,system-ui,sans-serif;line-height:1.08;margin:0}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:6px}
-.glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(520px circle at var(--mx,70%) var(--my,20%),var(--glow),transparent 70%)}
-nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;padding-top:calc(14px + env(safe-area-inset-top,0px));background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
-nav b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.15rem}
-.links{display:flex;gap:22px;align-items:center}
-.links a{text-decoration:none;color:var(--mut);font-size:.92rem;transition:color .2s}
-.links a:hover{color:var(--fg)}
-.tg{border:1px solid var(--bd);background:var(--card);color:var(--fg);border-radius:99px;padding:6px 12px;cursor:pointer;font:inherit;font-size:.85rem}
-main{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 5vw}
-section{padding:84px 0 12px}
-h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:28px}
-.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center;min-height:calc(100vh - 70px);padding:40px 0}
-.hero h1{font-size:clamp(2.6rem,7vw,4.9rem);font-weight:800;letter-spacing:-.03em}
-.hero h1 span{display:block;overflow:hidden}
-.hero h1 span i{display:block;font-style:normal;transform:translateY(105%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
-.hero h1 span:nth-child(2) i{animation-delay:.12s;color:var(--a)}
-@keyframes up{to{transform:none}}
-.role{font-family:"IBM Plex Mono",monospace;font-size:1.05rem;margin:22px 0 14px;min-height:1.6em}
-.caret{display:inline-block;width:9px;height:1.1em;background:var(--a);vertical-align:-3px;margin-left:3px;animation:bl 1s steps(1) infinite}
-@keyframes bl{50%{opacity:0}}
-.lead{color:var(--mut);max-width:46ch;margin:0 0 26px;opacity:0;animation:fade .8s .6s forwards}
-@keyframes fade{to{opacity:1}}
-.cta{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fade .8s .8s forwards}
-.btn{padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:500;border:1px solid var(--bd);background:var(--card);transition:transform .2s,box-shadow .2s}
-.btn.p{background:var(--a);border-color:var(--a);color:#101010}
-.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px var(--glow)}
-.photo{position:relative;width:min(340px,80%);aspect-ratio:1;margin:0 auto;border-radius:50%;padding:7px;background:conic-gradient(from 0deg,var(--a),var(--b),var(--a));animation:spin 8s linear infinite}
-.photo>div{width:100%;height:100%;border-radius:50%;background:var(--card);display:grid;place-items:center;overflow:hidden;animation:spin 8s linear infinite reverse}
-.photo img{width:100%;height:100%;object-fit:cover}
-.photo em{font:800 4.5rem "Bricolage Grotesque",sans-serif;font-style:normal;color:var(--a)}
-@keyframes spin{to{transform:rotate(360deg)}}
-.log{margin-top:26px;border:1px solid var(--bd);border-radius:12px;background:var(--card);padding:12px 14px;font:.78rem/1.7 "IBM Plex Mono",monospace;color:var(--mut);height:118px;overflow:hidden;position:relative}
-.log p{margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:fade .4s}
-.log .ok{color:var(--b)}
-.log::after{content:"";position:absolute;inset:auto 0 0;height:36px;background:linear-gradient(transparent,var(--card))}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:36px}
-.about p{margin:0 0 14px;color:var(--mut)}
-.facts{display:grid;gap:12px;align-content:start}
-.fact{border-left:3px solid var(--a);padding:2px 0 2px 14px}
-.fact b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:1.1rem}
-.fact span{color:var(--mut);font-size:.92rem}
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
-.sk h3{font-size:1.05rem;margin-bottom:10px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1px solid var(--bd);background:var(--card);border-radius:99px;padding:4px 13px;font-size:.86rem;transition:transform .2s,border-color .2s,color .2s}
-.chip:hover{transform:translateY(-3px) rotate(-2deg);border-color:var(--a);color:var(--a)}
-.tl{position:relative;padding-left:26px;border-left:2px solid var(--bd)}
-.tl::before{content:"";position:absolute;left:-2px;top:0;width:2px;height:var(--prog,0%);background:var(--a)}
-.job{position:relative;margin-bottom:30px}
-.job::before{content:"";position:absolute;left:-34px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--a);box-shadow:0 0 0 5px var(--glow)}
-.job h3{font-size:1.3rem}
-.job .m{color:var(--mut);font-size:.92rem;margin:2px 0 12px}
-.job h4{margin:16px 0 4px;font-size:.98rem}
-.job ul{margin:0;padding-left:18px;color:var(--mut)}
-.job li{margin-bottom:6px}
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:24px;transition:transform .15s,border-color .2s;transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
-.card:hover{border-color:var(--a)}
-.card h3{font-size:1.3rem;margin-bottom:8px}
-.card p{color:var(--mut);margin:0 0 14px}
-.contact{text-align:center;padding-bottom:90px}
-.contact h2{font-size:clamp(2rem,6vw,3.6rem)}
-.contact p{color:var(--mut);max-width:48ch;margin:0 auto 26px}
-.row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-footer{position:relative;z-index:1;text-align:center;color:var(--mut);font-size:.85rem;padding:0 0 40px}
-.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
-.rv.in{opacity:1;transform:none}
-@media (max-width:760px){.hero,.about{grid-template-columns:1fr}.hero{min-height:0}.photo{order:-1;width:min(240px,70%)}.links a:not(.tg){display:none}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}.hero h1 span i,.lead,.cta{transform:none;opacity:1}.rv{opacity:1;transform:none}}
-</style>
-</head>
-<body>
-<div id="root"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
-<script>
-(function(){
-var h=React.createElement,useState=React.useState,useEffect=React.useEffect,useRef=React.useRef;
-/* Photo file next to index.html. Set to "" to show initials instead. */
-var PHOTO="photo.jpg";
-var ROLES=["Java Backend Developer","Spring Boot & Microservices","Kafka, Redis & REST APIs","Builder of secure platforms"];
-var LOGS=[["POST /api/v1/scans 202 Accepted",1],["kafka  topic=vuln.ingest  partition=2  offset+1",0],["qualys.sync  normalized 1,284 findings",1],["GET /api/v1/assets 200 OK  18ms",1],["jwt  verified  role=ANALYST",0],["tenable.sc  scheduled job completed",1],["redis  rate-limit window ok  remaining=47",0],["jira  issue created from finding",1],["mfa  failed attempts 2 of 5",0],["deploy  patch release rolled out to k8s",1]];
-var SKILLS=[["Languages",["Java 8/17/21","Core Java","OOPs","Collections","Multithreading","SQL"]],["Backend",["Spring Boot","Spring MVC","Spring Data JPA","Java EE","REST APIs","Microservices","Event-driven design"]],["Data",["MySQL","PostgreSQL","MS SQL","MongoDB","Stored procedures","Redis"]],["Messaging",["Apache Kafka","RabbitMQ"]],["Security",["Spring Security","JWT","RBAC","MFA"]],["Cloud and DevOps",["AWS","Docker","Kubernetes","Jenkins","CI/CD"]],["Testing and tools",["JUnit","Mockito","Git","Maven","Jira","Postman"]],["Frontend",["React.js","Next.js","JavaScript"]]];
-var LINKS={mail:"mailto:manojkumarshinde370@gmail.com",li:"https://linkedin.com/in/manojkumar-shinde-299747161",gh:"https://github.com/manojshinde404"};
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Manojkumar Shinde | Java Backend Developer</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #f4f6fb;
+        --fg: #10182b;
+        --mut: #56607a;
+        --card: #ffffff;
+        --bd: #dde3f0;
+        --a: #e8590c;
+        --b: #0f766e;
+        --glow: rgba(232, 89, 12, 0.14);
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
 
-function Reveal(p){var r=useRef(null);useEffect(function(){var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");o.unobserve(x.target)}})},{threshold:.12});o.observe(r.current);return function(){o.disconnect()}},[]);
-return h(p.tag||"div",{ref:r,className:"rv "+(p.className||""),style:{transitionDelay:(p.delay||0)+"ms"}},p.children)}
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0c1426;
+          --fg: #eef2fb;
+          --mut: #9aa6c2;
+          --card: #131e36;
+          --bd: #24324f;
+          --a: #ffa94d;
+          --b: #5eead4;
+          --glow: rgba(255, 169, 77, 0.12);
+        }
+      }
 
-function Typing(){var s=useState(""),t=s[0],set=s[1];useEffect(function(){var i=0,j=0,del=false,id;function tick(){var w=ROLES[i];j+=del?-1:1;set(w.slice(0,j));var d=del?35:70;if(!del&&j===w.length){del=true;d=1400}else if(del&&j===0){del=false;i=(i+1)%ROLES.length;d=300}id=setTimeout(tick,d)}tick();return function(){clearTimeout(id)}},[]);
-return h("div",{className:"role"},"> "+t,h("span",{className:"caret"}))}
+      :root[data-theme="dark"] {
+        --bg: #0c1426;
+        --fg: #eef2fb;
+        --mut: #9aa6c2;
+        --card: #131e36;
+        --bd: #24324f;
+        --a: #ffa94d;
+        --b: #5eead4;
+        --glow: rgba(255, 169, 77, 0.12);
+      }
 
-function Log(){var s=useState([0,1,2]),idx=s[0],set=s[1];useEffect(function(){var n=3,id=setInterval(function(){set(function(a){return a.slice(1).concat([n++])})},1400);return function(){clearInterval(id)}},[]);
-return h("div",{className:"log","aria-hidden":"true"},idx.map(function(n){var l=LOGS[n%LOGS.length];return h("p",{key:n},h("span",{className:l[1]?"ok":""},l[1]?"200 ":"evt "),l[0])}))}
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(64px + env(safe-area-inset-top, 0px));
+      }
 
-function ResumeBtn(p){return h("a",{className:p.cls,href:"Manojkumar_Shinde_Resume_Java_Backend.pdf",download:"Manojkumar_Shinde_Resume_Java_Backend.pdf"},"Download resume")}
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-function Hero(){return h("section",{className:"hero",id:"top"},
-h("div",null,h("h1",null,h("span",null,h("i",null,"Manojkumar")),h("span",null,h("i",null,"Shinde"))),h(Typing),
-h("p",{className:"lead"},"I build Spring Boot microservices and secure backend integrations for a compliance platform, with 4 years 9 months of experience shipping weekly releases."),
-h("div",{className:"cta"},h("a",{className:"btn p",href:"#projects"},"See my work"),h("a",{className:"btn",href:LINKS.mail},"Email me"),h(ResumeBtn,{cls:"btn"}))),
-h("div",null,h("div",{className:"photo"},h("div",null,PHOTO?h("img",{src:PHOTO,alt:"Portrait of Manojkumar Shinde"}):h("em",null,"MS"))),h(Log)))}
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font:
+          16px/1.65 Inter,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        overflow-x: hidden;
+      }
 
-function About(){return h("section",{id:"about"},h(Reveal,{tag:"h2"},"About"),h("div",{className:"about"},
-h(Reveal,null,h("p",null,"I’m a senior software developer at Amigosec Consulting, working on the SynRadar governance, risk and compliance platform. My days go into REST APIs, microservices and integrations that turn scanner data into something teams can act on."),h("p",null,"I like systems that stay correct under load: atomic rate limiting, ordered Kafka events, and authentication flows that fail safely.")),
-h(Reveal,{className:"facts",delay:120},[["Based in Bangalore","Remote role with Amigosec since Feb 2022"],["Weekly releases","Patches, features and priority hotfixes on Docker and Kubernetes"],["Compliance domain","ISO 27001 and SEBI CSCRF dashboards"],["BE, Computer Science","VTU Belagavi, 2020"]].map(function(f){return h("div",{className:"fact",key:f[0]},h("b",null,f[0]),h("span",null,f[1]))}))))}
+      h1,
+      h2,
+      h3 {
+        font-family: "Bricolage Grotesque", Inter, system-ui, sans-serif;
+        line-height: 1.08;
+        margin: 0;
+      }
 
-function Skills(){return h("section",{id:"skills"},h(Reveal,{tag:"h2"},"Skills"),h("div",{className:"skills"},SKILLS.map(function(g,i){return h(Reveal,{className:"sk",key:g[0],delay:i*60},h("h3",null,g[0]),h("div",{className:"chips"},g[1].map(function(c){return h("span",{className:"chip",key:c},c)})))})))}
+      a {
+        color: inherit;
+      }
 
-function Experience(){var r=useRef(null);useEffect(function(){function f(){var b=r.current.getBoundingClientRect(),p=(innerHeight*.6-b.top)/b.height;r.current.style.setProperty("--prog",Math.max(0,Math.min(1,p))*100+"%")}f();addEventListener("scroll",f,{passive:true});return function(){removeEventListener("scroll",f)}},[]);
-return h("section",{id:"experience"},h(Reveal,{tag:"h2"},"Experience"),h("div",{className:"tl",ref:r},h(Reveal,{className:"job"},
-h("h3",null,"Senior Software Developer"),h("div",{className:"m"},"Amigosec Consulting Private Limited (SynRadar), Feb 2022 to present"),
-h("h4",null,"SynVM, vulnerability management"),h("ul",null,h("li",null,"Built Qualys and Tenable.sc integrations that normalize different scanner formats into one internal model, with scheduled jobs replacing manual imports."),h("li",null,"Built a Jira integration and live vulnerability dashboards.")),
-h("h4",null,"SynSCM, security compliance"),h("ul",null,h("li",null,"Built backend APIs and React dashboards for ISO 27001 and SEBI CSCRF audits.")),
-h("h4",null,"Platform and delivery"),h("ul",null,h("li",null,"Implemented JWT, RBAC and a custom MFA flow with failed-attempt tracking and automatic lockout."),h("li",null,"Optimized MySQL and MS SQL schemas, wrote stored procedures, and resolved production defects and hotfixes with QA and architects."),h("li",null,"Ship weekly releases through Docker, Kubernetes, Jenkins and AWS CI/CD, and review peers’ code.")))))}
+      :focus-visible {
+        outline: 2px solid var(--a);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
 
-function Card(p){function mv(e){var b=e.currentTarget.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;e.currentTarget.style.setProperty("--ry",x*8+"deg");e.currentTarget.style.setProperty("--rx",-y*8+"deg")}
-function lv(e){e.currentTarget.style.setProperty("--ry","0deg");e.currentTarget.style.setProperty("--rx","0deg")}
-return h(Reveal,{delay:p.delay},h("div",{className:"card",onMouseMove:mv,onMouseLeave:lv},h("h3",null,p.t),h("p",null,p.d),h("div",{className:"chips"},p.c.map(function(c){return h("span",{className:"chip",key:c},c)})),p.l?h("p",{style:{margin:"16px 0 0"}},h("a",{href:p.l,target:"_blank",rel:"noopener"},"View on GitHub")):null))}
+      .glow {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background: radial-gradient(
+          520px circle at var(--mx, 70%) var(--my, 20%),
+          var(--glow),
+          transparent 70%
+        );
+      }
 
-function Projects(){return h("section",{id:"projects"},h(Reveal,{tag:"h2"},"Projects"),h("div",{className:"projects"},
-h(Card,{t:"SynVM",d:"The vulnerability management module of SynRadar. I design and build its REST APIs and microservices from low-level design to release, including Qualys and Tenable.sc integrations that normalize different scanner formats into one model, scheduled sync jobs, a Jira integration and live dashboards.",c:["Java","Spring Boot","Microservices","MySQL","Jira"],delay:0}),
-h(Card,{t:"SynSCM",d:"The security compliance module of SynRadar. I build its backend REST APIs and microservices, plus React dashboards that give real-time visibility into ISO 27001 and SEBI CSCRF audits.",c:["Java","Spring Boot","React.js","REST APIs"],delay:120}),
-h(Card,{t:"RateShield",d:"A Spring Boot API gateway that checks JWTs and enforces tiered rate limits per client. A Redis sliding window runs as an atomic Lua script, so limits hold across gateway instances. Every allow or block decision goes to Kafka, keyed by client to keep order, and feeds a live dashboard.",c:["Java 17","Spring Boot","Redis","Kafka","JWT","Docker"],l:LINKS.gh,delay:240})))}
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 5vw;
+        padding-top: calc(14px + env(safe-area-inset-top, 0px));
+        background: color-mix(in srgb, var(--bg) 85%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--bd);
+      }
 
-function Contact(){return h("section",{id:"contact",className:"contact"},h(Reveal,{tag:"h2"},"Let’s talk about your backend"),h(Reveal,{tag:"p"},"I’m open to Java backend roles. The quickest way to reach me is email."),h(Reveal,{className:"row"},h("a",{className:"btn p",href:LINKS.mail},"manojkumarshinde370@gmail.com"),h("a",{className:"btn",href:LINKS.li,target:"_blank",rel:"noopener"},"LinkedIn"),h("a",{className:"btn",href:LINKS.gh,target:"_blank",rel:"noopener"},"GitHub"),h(ResumeBtn,{cls:"btn"})))}
+      nav b {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 1.15rem;
+      }
 
-function App(){var s=useState(function(){try{return localStorage.getItem("theme")}catch(e){return null}}),th=s[0],setTh=s[1];
-useEffect(function(){if(th)document.documentElement.setAttribute("data-theme",th);else document.documentElement.removeAttribute("data-theme")},[th]);
-useEffect(function(){function m(e){document.documentElement.style.setProperty("--mx",e.clientX+"px");document.documentElement.style.setProperty("--my",e.clientY+"px")}addEventListener("pointermove",m);return function(){removeEventListener("pointermove",m)}},[]);
-function toggle(){var dark=document.documentElement.getAttribute("data-theme")==="dark"||(!th&&matchMedia("(prefers-color-scheme:dark)").matches);var n=dark?"light":"dark";setTh(n);try{localStorage.setItem("theme",n)}catch(e){}}
-return h(React.Fragment,null,h("div",{className:"glow"}),h("nav",null,h("b",null,"MS"),h("div",{className:"links"},h("a",{href:"#about"},"About"),h("a",{href:"#skills"},"Skills"),h("a",{href:"#experience"},"Experience"),h("a",{href:"#projects"},"Projects"),h("a",{href:"#contact"},"Contact"),h("button",{className:"tg",onClick:toggle,"aria-label":"Toggle light and dark theme"},"Theme"))),
-h("main",null,h(Hero),h(About),h(Skills),h(Experience),h(Projects),h(Contact)),h("footer",null,"Manojkumar Shinde, Bangalore"))}
-ReactDOM.createRoot(document.getElementById("root")).render(h(App));
-})();
-</script>
-</body>
+      .links {
+        display: flex;
+        gap: 22px;
+        align-items: center;
+      }
+
+      .links a {
+        text-decoration: none;
+        color: var(--mut);
+        font-size: 0.92rem;
+        transition: color 0.2s;
+      }
+
+      .links a:hover {
+        color: var(--fg);
+      }
+
+      .tg {
+        border: 1px solid var(--bd);
+        background: var(--card);
+        color: var(--fg);
+        border-radius: 99px;
+        padding: 6px 12px;
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.85rem;
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 5vw;
+      }
+
+      section {
+        padding: 84px 0 12px;
+      }
+
+      h2 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        margin-bottom: 28px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 48px;
+        align-items: center;
+        min-height: calc(100vh - 70px);
+        padding: 40px 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.6rem, 7vw, 4.9rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+
+      .hero h1 span {
+        display: block;
+        overflow: hidden;
+      }
+
+      .hero h1 span i {
+        display: block;
+        font-style: normal;
+        transform: translateY(105%);
+        animation: up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+
+      .hero h1 span:nth-child(2) i {
+        animation-delay: 0.12s;
+        color: var(--a);
+      }
+
+      @keyframes up {
+        to {
+          transform: none;
+        }
+      }
+
+      .role {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 1.05rem;
+        margin: 22px 0 14px;
+        min-height: 1.6em;
+      }
+
+      .caret {
+        display: inline-block;
+        width: 9px;
+        height: 1.1em;
+        background: var(--a);
+        vertical-align: -3px;
+        margin-left: 3px;
+        animation: bl 1s steps(1) infinite;
+      }
+
+      @keyframes bl {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .lead {
+        color: var(--mut);
+        max-width: 46ch;
+        margin: 0 0 26px;
+        opacity: 0;
+        animation: fade 0.8s 0.6s forwards;
+      }
+
+      @keyframes fade {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fade 0.8s 0.8s forwards;
+      }
+
+      .btn {
+        padding: 12px 22px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 500;
+        border: 1px solid var(--bd);
+        background: var(--card);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .btn.p {
+        background: var(--a);
+        border-color: var(--a);
+        color: #101010;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px var(--glow);
+      }
+
+      .photo {
+        position: relative;
+        width: min(340px, 80%);
+        aspect-ratio: 1;
+        margin: 0 auto;
+        border-radius: 50%;
+        padding: 7px;
+        background: conic-gradient(from 0deg, var(--a), var(--b), var(--a));
+        animation: spin 8s linear infinite;
+      }
+
+      .photo > div {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: var(--card);
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        animation: spin 8s linear infinite reverse;
+      }
+
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .photo em {
+        font:
+          800 4.5rem "Bricolage Grotesque",
+          sans-serif;
+        font-style: normal;
+        color: var(--a);
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .log {
+        margin-top: 26px;
+        border: 1px solid var(--bd);
+        border-radius: 12px;
+        background: var(--card);
+        padding: 12px 14px;
+        font:
+          0.78rem/1.7 "IBM Plex Mono",
+          monospace;
+        color: var(--mut);
+        height: 118px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .log p {
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        animation: fade 0.4s;
+      }
+
+      .log .ok {
+        color: var(--b);
+      }
+
+      .log::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 36px;
+        background: linear-gradient(transparent, var(--card));
+      }
+
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+
+      .about p {
+        margin: 0 0 14px;
+        color: var(--mut);
+      }
+
+      .facts {
+        display: grid;
+        gap: 12px;
+        align-content: start;
+      }
+
+      .fact {
+        border-left: 3px solid var(--a);
+        padding: 2px 0 2px 14px;
+      }
+
+      .fact b {
+        display: block;
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 1.1rem;
+      }
+
+      .fact span {
+        color: var(--mut);
+        font-size: 0.92rem;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 22px;
+      }
+
+      .sk h3 {
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .chip {
+        border: 1px solid var(--bd);
+        background: var(--card);
+        border-radius: 99px;
+        padding: 4px 13px;
+        font-size: 0.86rem;
+        transition:
+          transform 0.2s,
+          border-color 0.2s,
+          color 0.2s;
+      }
+
+      .chip:hover {
+        transform: translateY(-3px) rotate(-2deg);
+        border-color: var(--a);
+        color: var(--a);
+      }
+
+      .tl {
+        position: relative;
+        padding-left: 26px;
+        border-left: 2px solid var(--bd);
+      }
+
+      .tl::before {
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: 0;
+        width: 2px;
+        height: var(--prog, 0%);
+        background: var(--a);
+      }
+
+      .job {
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+      .job::before {
+        content: "";
+        position: absolute;
+        left: -34px;
+        top: 8px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--a);
+        box-shadow: 0 0 0 5px var(--glow);
+      }
+
+      .job h3 {
+        font-size: 1.3rem;
+      }
+
+      .job .m {
+        color: var(--mut);
+        font-size: 0.92rem;
+        margin: 2px 0 12px;
+      }
+
+      .job h4 {
+        margin: 16px 0 4px;
+        font-size: 0.98rem;
+      }
+
+      .job ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--mut);
+      }
+
+      .job li {
+        margin-bottom: 6px;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 22px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--bd);
+        border-radius: 16px;
+        padding: 24px;
+        transition:
+          transform 0.15s,
+          border-color 0.2s;
+        transform: perspective(800px) rotateX(var(--rx, 0deg))
+          rotateY(var(--ry, 0deg));
+      }
+
+      .card:hover {
+        border-color: var(--a);
+      }
+
+      .card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+      }
+
+      .card p {
+        color: var(--mut);
+        margin: 0 0 14px;
+      }
+
+      .contact {
+        text-align: center;
+        padding-bottom: 90px;
+      }
+
+      .contact h2 {
+        font-size: clamp(2rem, 6vw, 3.6rem);
+      }
+
+      .contact p {
+        color: var(--mut);
+        max-width: 48ch;
+        margin: 0 auto 26px;
+      }
+
+      .row {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      footer {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: var(--mut);
+        font-size: 0.85rem;
+        padding: 0 0 40px;
+      }
+
+      .rv {
+        opacity: 0;
+        transform: translateY(26px);
+        transition:
+          opacity 0.7s,
+          transform 0.7s;
+      }
+
+      .rv.in {
+        opacity: 1;
+        transform: none;
+      }
+
+      @media (max-width: 760px) {
+        .hero,
+        .about {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: 0;
+        }
+
+        .photo {
+          order: -1;
+          width: min(240px, 70%);
+        }
+
+        .links a:not(.tg) {
+          display: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition: none !important;
+        }
+
+        .hero h1 span i,
+        .lead,
+        .cta {
+          transform: none;
+          opacity: 1;
+        }
+
+        .rv {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+    <script>
+      (function () {
+        var h = React.createElement,
+          useState = React.useState,
+          useEffect = React.useEffect,
+          useRef = React.useRef;
+        /* Photo file next to index.html. Set to "" to show initials instead. */
+        var PHOTO = "photo.jpg";
+        var ROLES = [
+          "Java Backend Developer",
+          "Spring Boot & Microservices",
+          "Kafka, Redis & REST APIs",
+          "Builder of secure platforms",
+        ];
+        var LOGS = [
+          ["POST /api/v1/scans 202 Accepted", 1],
+          ["kafka  topic=vuln.ingest  partition=2  offset+1", 0],
+          ["qualys.sync  normalized 1,284 findings", 1],
+          ["GET /api/v1/assets 200 OK  18ms", 1],
+          ["jwt  verified  role=ANALYST", 0],
+          ["tenable.sc  scheduled job completed", 1],
+          ["redis  rate-limit window ok  remaining=47", 0],
+          ["jira  issue created from finding", 1],
+          ["mfa  failed attempts 2 of 5", 0],
+          ["deploy  patch release rolled out to k8s", 1],
+        ];
+        var SKILLS = [
+          [
+            "Languages",
+            [
+              "Java 8/17/21",
+              "Core Java",
+              "OOPs",
+              "Collections",
+              "Multithreading",
+              "SQL",
+            ],
+          ],
+          [
+            "Backend",
+            [
+              "Spring Boot",
+              "Spring MVC",
+              "Spring Data JPA",
+              "Java EE",
+              "REST APIs",
+              "Microservices",
+              "Event-driven design",
+            ],
+          ],
+          [
+            "Data",
+            [
+              "MySQL",
+              "PostgreSQL",
+              "MS SQL",
+              "MongoDB",
+              "Stored procedures",
+              "Redis",
+            ],
+          ],
+          ["Messaging", ["Apache Kafka", "RabbitMQ"]],
+          ["Security", ["Spring Security", "JWT", "RBAC", "MFA"]],
+          [
+            "Cloud and DevOps",
+            ["AWS", "Docker", "Kubernetes", "Jenkins", "CI/CD"],
+          ],
+          [
+            "Testing and tools",
+            ["JUnit", "Mockito", "Git", "Maven", "Jira", "Postman"],
+          ],
+          ["Frontend", ["React.js", "Next.js", "JavaScript"]],
+        ];
+        var LINKS = {
+          mail: "mailto:manojkumarshinde370@gmail.com",
+          li: "https://linkedin.com/in/manojkumar-shinde-299747161",
+          gh: "https://github.com/manojshinde404",
+        };
+
+        function Reveal(p) {
+          var r = useRef(null);
+          useEffect(function () {
+            var o = new IntersectionObserver(
+              function (e) {
+                e.forEach(function (x) {
+                  if (x.isIntersecting) {
+                    x.target.classList.add("in");
+                    o.unobserve(x.target);
+                  }
+                });
+              },
+              { threshold: 0.12 },
+            );
+            o.observe(r.current);
+            return function () {
+              o.disconnect();
+            };
+          }, []);
+          return h(
+            p.tag || "div",
+            {
+              ref: r,
+              className: "rv " + (p.className || ""),
+              style: { transitionDelay: (p.delay || 0) + "ms" },
+            },
+            p.children,
+          );
+        }
+
+        function Typing() {
+          var s = useState(""),
+            t = s[0],
+            set = s[1];
+          useEffect(function () {
+            var i = 0,
+              j = 0,
+              del = false,
+              id;
+            function tick() {
+              var w = ROLES[i];
+              j += del ? -1 : 1;
+              set(w.slice(0, j));
+              var d = del ? 35 : 70;
+              if (!del && j === w.length) {
+                del = true;
+                d = 1400;
+              } else if (del && j === 0) {
+                del = false;
+                i = (i + 1) % ROLES.length;
+                d = 300;
+              }
+              id = setTimeout(tick, d);
+            }
+            tick();
+            return function () {
+              clearTimeout(id);
+            };
+          }, []);
+          return h(
+            "div",
+            { className: "role" },
+            "> " + t,
+            h("span", { className: "caret" }),
+          );
+        }
+
+        function Log() {
+          var s = useState([0, 1, 2]),
+            idx = s[0],
+            set = s[1];
+          useEffect(function () {
+            var n = 3,
+              id = setInterval(function () {
+                set(function (a) {
+                  return a.slice(1).concat([n++]);
+                });
+              }, 1400);
+            return function () {
+              clearInterval(id);
+            };
+          }, []);
+          return h(
+            "div",
+            { className: "log", "aria-hidden": "true" },
+            idx.map(function (n) {
+              var l = LOGS[n % LOGS.length];
+              return h(
+                "p",
+                { key: n },
+                h(
+                  "span",
+                  { className: l[1] ? "ok" : "" },
+                  l[1] ? "200 " : "evt ",
+                ),
+                l[0],
+              );
+            }),
+          );
+        }
+
+        function ResumeBtn(p) {
+          return h(
+            "a",
+            {
+              className: p.cls,
+              href: "Manojkumar_Shinde_Resume_Java_Backend.pdf",
+              download: "Manojkumar_Shinde_Resume_Java_Backend.pdf",
+            },
+            "Download resume",
+          );
+        }
+
+        function Hero() {
+          return h(
+            "section",
+            { className: "hero", id: "top" },
+            h(
+              "div",
+              null,
+              h(
+                "h1",
+                null,
+                h("span", null, h("i", null, "Manojkumar")),
+                h("span", null, h("i", null, "Shinde")),
+              ),
+              h(Typing),
+              h(
+                "p",
+                { className: "lead" },
+                "I build Spring Boot microservices and secure backend integrations for a compliance platform, with 4 years 9 months of experience shipping weekly releases.",
+              ),
+              h(
+                "div",
+                { className: "cta" },
+                h(
+                  "a",
+                  { className: "btn p", href: "#projects" },
+                  "See my work",
+                ),
+                h("a", { className: "btn", href: LINKS.mail }, "Email me"),
+                h(ResumeBtn, { cls: "btn" }),
+              ),
+            ),
+            h(
+              "div",
+              null,
+              h(
+                "div",
+                { className: "photo" },
+                h(
+                  "div",
+                  null,
+                  PHOTO
+                    ? h("img", {
+                        src: PHOTO,
+                        alt: "Portrait of Manojkumar Shinde",
+                      })
+                    : h("em", null, "MS"),
+                ),
+              ),
+              h(Log),
+            ),
+          );
+        }
+
+        function About() {
+          return h(
+            "section",
+            { id: "about" },
+            h(Reveal, { tag: "h2" }, "About"),
+            h(
+              "div",
+              { className: "about" },
+              h(
+                Reveal,
+                null,
+                h(
+                  "p",
+                  null,
+                  "I’m a senior software developer at Amigosec Consulting, working on the SynRadar governance, risk and compliance platform. My days go into REST APIs, microservices and integrations that turn scanner data into something teams can act on.",
+                ),
+                h(
+                  "p",
+                  null,
+                  "I like systems that stay correct under load: atomic rate limiting, ordered Kafka events, and authentication flows that fail safely.",
+                ),
+              ),
+              h(
+                Reveal,
+                { className: "facts", delay: 120 },
+                [
+                  [
+                    "Based in Bangalore",
+                    "Remote role with Amigosec since Feb 2022",
+                  ],
+                  [
+                    "Weekly releases",
+                    "Patches, features and priority hotfixes on Docker and Kubernetes",
+                  ],
+                  ["Compliance domain", "ISO 27001 and SEBI CSCRF dashboards"],
+                  ["BE, Computer Science", "VTU Belagavi, 2020"],
+                ].map(function (f) {
+                  return h(
+                    "div",
+                    { className: "fact", key: f[0] },
+                    h("b", null, f[0]),
+                    h("span", null, f[1]),
+                  );
+                }),
+              ),
+            ),
+          );
+        }
+
+        function Skills() {
+          return h(
+            "section",
+            { id: "skills" },
+            h(Reveal, { tag: "h2" }, "Skills"),
+            h(
+              "div",
+              { className: "skills" },
+              SKILLS.map(function (g, i) {
+                return h(
+                  Reveal,
+                  { className: "sk", key: g[0], delay: i * 60 },
+                  h("h3", null, g[0]),
+                  h(
+                    "div",
+                    { className: "chips" },
+                    g[1].map(function (c) {
+                      return h("span", { className: "chip", key: c }, c);
+                    }),
+                  ),
+                );
+              }),
+            ),
+          );
+        }
+
+        function Experience() {
+          var r = useRef(null);
+          useEffect(function () {
+            function f() {
+              var b = r.current.getBoundingClientRect(),
+                p = (innerHeight * 0.6 - b.top) / b.height;
+              r.current.style.setProperty(
+                "--prog",
+                Math.max(0, Math.min(1, p)) * 100 + "%",
+              );
+            }
+            f();
+            addEventListener("scroll", f, { passive: true });
+            return function () {
+              removeEventListener("scroll", f);
+            };
+          }, []);
+          return h(
+            "section",
+            { id: "experience" },
+            h(Reveal, { tag: "h2" }, "Experience"),
+            h(
+              "div",
+              { className: "tl", ref: r },
+              h(
+                Reveal,
+                { className: "job" },
+                h("h3", null, "Senior Software Developer"),
+                h(
+                  "div",
+                  { className: "m" },
+                  "Amigosec Consulting Private Limited (SynRadar), Feb 2022 to present",
+                ),
+                h("h4", null, "SynVM, vulnerability management"),
+                h(
+                  "ul",
+                  null,
+                  h(
+                    "li",
+                    null,
+                    "Built Qualys and Tenable.sc integrations that normalize different scanner formats into one internal model, with scheduled jobs replacing manual imports.",
+                  ),
+                  h(
+                    "li",
+                    null,
+                    "Built a Jira integration and live vulnerability dashboards.",
+                  ),
+                ),
+                h("h4", null, "SynSCM, security compliance"),
+                h(
+                  "ul",
+                  null,
+                  h(
+                    "li",
+                    null,
+                    "Built backend APIs and React dashboards for ISO 27001 and SEBI CSCRF audits.",
+                  ),
+                ),
+                h("h4", null, "Platform and delivery"),
+                h(
+                  "ul",
+                  null,
+                  h(
+                    "li",
+                    null,
+                    "Implemented JWT, RBAC and a custom MFA flow with failed-attempt tracking and automatic lockout.",
+                  ),
+                  h(
+                    "li",
+                    null,
+                    "Optimized MySQL and MS SQL schemas, wrote stored procedures, and resolved production defects and hotfixes with QA and architects.",
+                  ),
+                  h(
+                    "li",
+                    null,
+                    "Ship weekly releases through Docker, Kubernetes, Jenkins and AWS CI/CD, and review peers’ code.",
+                  ),
+                ),
+              ),
+            ),
+          );
+        }
+
+        function Card(p) {
+          function mv(e) {
+            var b = e.currentTarget.getBoundingClientRect(),
+              x = (e.clientX - b.left) / b.width - 0.5,
+              y = (e.clientY - b.top) / b.height - 0.5;
+            e.currentTarget.style.setProperty("--ry", x * 8 + "deg");
+            e.currentTarget.style.setProperty("--rx", -y * 8 + "deg");
+          }
+          function lv(e) {
+            e.currentTarget.style.setProperty("--ry", "0deg");
+            e.currentTarget.style.setProperty("--rx", "0deg");
+          }
+          return h(
+            Reveal,
+            { delay: p.delay },
+            h(
+              "div",
+              { className: "card", onMouseMove: mv, onMouseLeave: lv },
+              h("h3", null, p.t),
+              h("p", null, p.d),
+              h(
+                "div",
+                { className: "chips" },
+                p.c.map(function (c) {
+                  return h("span", { className: "chip", key: c }, c);
+                }),
+              ),
+              p.l
+                ? h(
+                    "p",
+                    { style: { margin: "16px 0 0" } },
+                    h(
+                      "a",
+                      { href: p.l, target: "_blank", rel: "noopener" },
+                      "View on GitHub",
+                    ),
+                  )
+                : null,
+            ),
+          );
+        }
+
+        function Projects() {
+          return h(
+            "section",
+            { id: "projects" },
+            h(Reveal, { tag: "h2" }, "Projects"),
+            h(
+              "div",
+              { className: "projects" },
+              h(Card, {
+                t: "SynVM",
+                d: "The vulnerability management module of SynRadar. I design and build its REST APIs and microservices from low-level design to release, including Qualys and Tenable.sc integrations that normalize different scanner formats into one model, scheduled sync jobs, a Jira integration and live dashboards.",
+                c: ["Java", "Spring Boot", "Microservices", "MySQL", "Jira"],
+                delay: 0,
+              }),
+              h(Card, {
+                t: "SynSCM",
+                d: "The security compliance module of SynRadar. I build its backend REST APIs and microservices, plus React dashboards that give real-time visibility into ISO 27001 and SEBI CSCRF audits.",
+                c: ["Java", "Spring Boot", "React.js", "REST APIs"],
+                delay: 120,
+              }),
+              h(Card, {
+                t: "RateShield",
+                d: "A Spring Boot API gateway that checks JWTs and enforces tiered rate limits per client. A Redis sliding window runs as an atomic Lua script, so limits hold across gateway instances. Every allow or block decision goes to Kafka, keyed by client to keep order, and feeds a live dashboard.",
+                c: [
+                  "Java 17",
+                  "Spring Boot",
+                  "Redis",
+                  "Kafka",
+                  "JWT",
+                  "Docker",
+                ],
+                l: LINKS.gh,
+                delay: 240,
+              }),
+            ),
+          );
+        }
+
+        function Contact() {
+          return h(
+            "section",
+            { id: "contact", className: "contact" },
+            h(Reveal, { tag: "h2" }, "Let’s talk about your backend"),
+            h(
+              Reveal,
+              { tag: "p" },
+              "I’m open to Java backend roles. The quickest way to reach me is email.",
+            ),
+            h(
+              Reveal,
+              { className: "row" },
+              h(
+                "a",
+                { className: "btn p", href: LINKS.mail },
+                "manojkumarshinde370@gmail.com",
+              ),
+              h(
+                "a",
+                {
+                  className: "btn",
+                  href: LINKS.li,
+                  target: "_blank",
+                  rel: "noopener",
+                },
+                "LinkedIn",
+              ),
+              h(
+                "a",
+                {
+                  className: "btn",
+                  href: LINKS.gh,
+                  target: "_blank",
+                  rel: "noopener",
+                },
+                "GitHub",
+              ),
+              h(ResumeBtn, { cls: "btn" }),
+            ),
+          );
+        }
+
+        function App() {
+          var s = useState(function () {
+              try {
+                return localStorage.getItem("theme");
+              } catch (e) {
+                return null;
+              }
+            }),
+            th = s[0],
+            setTh = s[1];
+          useEffect(
+            function () {
+              if (th) document.documentElement.setAttribute("data-theme", th);
+              else document.documentElement.removeAttribute("data-theme");
+            },
+            [th],
+          );
+          useEffect(function () {
+            function m(e) {
+              document.documentElement.style.setProperty(
+                "--mx",
+                e.clientX + "px",
+              );
+              document.documentElement.style.setProperty(
+                "--my",
+                e.clientY + "px",
+              );
+            }
+            addEventListener("pointermove", m);
+            return function () {
+              removeEventListener("pointermove", m);
+            };
+          }, []);
+          function toggle() {
+            var dark =
+              document.documentElement.getAttribute("data-theme") === "dark" ||
+              (!th && matchMedia("(prefers-color-scheme:dark)").matches);
+            var n = dark ? "light" : "dark";
+            setTh(n);
+            try {
+              localStorage.setItem("theme", n);
+            } catch (e) {}
+          }
+          return h(
+            React.Fragment,
+            null,
+            h("div", { className: "glow" }),
+            h(
+              "nav",
+              null,
+              h("b", null, "MS"),
+              h(
+                "div",
+                { className: "links" },
+                h("a", { href: "#about" }, "About"),
+                h("a", { href: "#skills" }, "Skills"),
+                h("a", { href: "#experience" }, "Experience"),
+                h("a", { href: "#projects" }, "Projects"),
+                h("a", { href: "#contact" }, "Contact"),
+                h(
+                  "button",
+                  {
+                    className: "tg",
+                    onClick: toggle,
+                    "aria-label": "Toggle light and dark theme",
+                  },
+                  "Theme",
+                ),
+              ),
+            ),
+            h(
+              "main",
+              null,
+              h(Hero),
+              h(About),
+              h(Skills),
+              h(Experience),
+              h(Projects),
+              h(Contact),
+            ),
+            h("footer", null, "Manojkumar Shinde, Bangalore"),
+          );
+        }
+        ReactDOM.createRoot(document.getElementById("root")).render(h(App));
+      })();
+    </script>
+  </body>
 </html>
