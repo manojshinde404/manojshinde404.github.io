@@ -93,8 +93,8 @@ footer{position:relative;z-index:1;text-align:center;color:var(--mut);font-size:
 <script>
 (function(){
 var h=React.createElement,useState=React.useState,useEffect=React.useEffect,useRef=React.useRef;
-/* Add your photo as photo.jpg next to index.html, then change this to "photo.jpg". Empty shows your initials. */
-var PHOTO="";
+/* Photo file next to index.html. Set to "" to show initials instead. */
+var PHOTO="photo.jpg";
 var ROLES=["Java Backend Developer","Spring Boot & Microservices","Kafka, Redis & REST APIs","Builder of secure platforms"];
 var LOGS=[["POST /api/v1/scans 202 Accepted",1],["kafka  topic=vuln.ingest  partition=2  offset+1",0],["qualys.sync  normalized 1,284 findings",1],["GET /api/v1/assets 200 OK  18ms",1],["jwt  verified  role=ANALYST",0],["tenable.sc  scheduled job completed",1],["redis  rate-limit window ok  remaining=47",0],["jira  issue created from finding",1],["mfa  failed attempts 2 of 5",0],["deploy  patch release rolled out to k8s",1]];
 var SKILLS=[["Languages",["Java 8/17/21","Core Java","OOPs","Collections","Multithreading","SQL"]],["Backend",["Spring Boot","Spring MVC","Spring Data JPA","Java EE","REST APIs","Microservices","Event-driven design"]],["Data",["MySQL","PostgreSQL","MS SQL","MongoDB","Stored procedures","Redis"]],["Messaging",["Apache Kafka","RabbitMQ"]],["Security",["Spring Security","JWT","RBAC","MFA"]],["Cloud and DevOps",["AWS","Docker","Kubernetes","Jenkins","CI/CD"]],["Testing and tools",["JUnit","Mockito","Git","Maven","Jira","Postman"]],["Frontend",["React.js","Next.js","JavaScript"]]];
